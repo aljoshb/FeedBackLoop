@@ -12,4 +12,6 @@
 
 ### Use of ```email provider```
 
+### Use of Heroku
+
 ## Communication with fdl_client
