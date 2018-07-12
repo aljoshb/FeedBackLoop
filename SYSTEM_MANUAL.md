@@ -6,6 +6,8 @@
 
 ### Use of MongoDB
 
+### Use of Passport.js
+
 ### Use of Stripe
 
 ### Use of ```email provider```
