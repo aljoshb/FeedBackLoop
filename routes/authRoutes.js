@@ -12,4 +12,9 @@ module.exports = (app) => { // Export the routes so they can be used in index.js
 
     /* A user's google login request response will get sent back to this route from Google */
     app.get('/auth/google/callback', passport.authenticate('google'));
+
+    /* Just testing the authentication flow works */
+    app.get('/api/current_user', (req, res) => {
+        res.send(req.user);
+    });
 }
