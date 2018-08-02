@@ -25,21 +25,20 @@ passport.use(new GoogleStrategy({
         callbackURL: '/auth/google/callback', // The callback route to send the google oauth response to
         proxy: true
     },
-    (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => {
         
-        User.findOne({ googleId: profile.id }).then( (existingUser) => {
-            if (existingUser) {
-                /* We already have a record with the give profile ID */
+        const existingUser = await User.findOne({ googleId: profile.id });
+        
+        if (existingUser) {
+            /* We already have a record with the give profile ID */
 
-                /* Call the done() callback to tell passport that we have finished authentication */
-                done(null, existingUser);
-            }
-            else {
-                /* We don't have user record with this ID, make a new record */
-                new User({ googleId: profile.id })
-                    .save()
-                    .then( (user) => done(null, user)); // We can't just call done() since query to the databse is asynchronous, so we need to first save, then call done
-            }
-        });
+            /* Call the done() callback to tell passport that we have finished authentication */
+            done(null, existingUser);
+        }
+        else {
+            /* We don't have user record with this ID, make a new record */
+            const user = await new User({ googleId: profile.id }).save();
+            done(null, user);
+        }
     }
 ));
