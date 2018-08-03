@@ -11,12 +11,18 @@ module.exports = (app) => {
     );
 
     /* A user's google login request response will get sent back to this route from Google */
-    app.get('/auth/google/callback', passport.authenticate('google'));
+    app.get(
+        '/auth/google/callback', 
+        passport.authenticate('google'),
+        (req, res) => {
+            res.redirect('/surveys');
+        }
+    );
 
     /* Log the user out */
     app.get('/api/logout', (req, res) => {
         req.logout();
-        res.send(req.user);
+        res.redirect('/');
     });
 
     /* Just testing the authentication flow works */
