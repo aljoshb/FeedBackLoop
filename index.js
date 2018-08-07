@@ -4,7 +4,8 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const keys = require('./config/keys');
 const bodyParser = require('body-parser');
-require('./models/user');
+require('./models/User');
+require('./models/Survey');
 require('./services/passport'); // passport.js does not actually export anything, we just want it to be here when the server starts up so that it will run
 
 /* Connect to the MongoDB database using mongoose */
@@ -27,6 +28,7 @@ app.use(passport.session());
 /* Handle all the routes */
 require('./routes/authRoutes')(app); // Instead of doing: const authRoutes = require('./routes/authRoutes'); then: authRoutes(app)
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app);
 
 /* To ensure that the express app handles the React app routes correctly in production (the create React app server does not exist in production) */
 if (process.env.NODE_ENV === 'production') {
