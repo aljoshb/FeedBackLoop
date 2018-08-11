@@ -4,7 +4,7 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const keys = require('./config/keys');
 const bodyParser = require('body-parser');
-require('./models/User');
+require('./models/user');
 require('./models/Survey');
 require('./services/passport'); // passport.js does not actually export anything, we just want it to be here when the server starts up so that it will run
 
