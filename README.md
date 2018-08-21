@@ -10,4 +10,4 @@ fdl_server is the server side application of the Feed Back Loop web application.
 
 ## Wanna Try it Out?
 
-You can try out FeedBackLoop here: [FeedBackLoop](https://limitless-cliffs-20024.herokuapp.com/).
+You can try out the live version of FeedBackLoop here: [FeedBackLoop](https://limitless-cliffs-20024.herokuapp.com/).
