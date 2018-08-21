@@ -8,6 +8,6 @@ Feed Back Loop allows you to tailor your survey to your specific needs. Feed Bac
 
 fdl_server is the server side application of the Feed Back Loop web application. The server app is built using ```node.js```, ```MongoDB```, ```Express.js``` and ```Passport.js```.
 
-## OAuth Authentication and Configuration Files
+## Wanna Try it Out?
 
-As is, the app will not run because the configuration file (that contains the Google OAuth Client Secret) is not in this repo. You will need to sign up for Google OAuth and place a file called ```keys.js``` in the ```config``` folder.
+You can try out FeedBackLoop here: [FeedBackLoop](https://limitless-cliffs-20024.herokuapp.com/).
